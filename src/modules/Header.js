@@ -1,22 +1,10 @@
-import { Box, Avatar, makeStyles, createStyles } from "@material-ui/core";
+import { Box, Avatar } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import SearchIcon from "@mui/icons-material/Search";
-
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    search: {
-      display: "flex",
-      backgroundColor: "#e6e6e6",
-      borderRadius: "0.25rem",
-      padding: "0.25rem",
-    },
-    input: { backgroundColor: "inherit !important", border: "none !important" },
-  })
-);
+import "../index.css";
 
 function Header(props) {
-  const classes = useStyles();
   const { randomizeData } = props;
   return (
     <Box
@@ -28,9 +16,9 @@ function Header(props) {
         justifyContent: "flex-end",
       }}
     >
-      <Box className={classes.search}>
+      <Box className="search">
         <SearchIcon />
-        <input className={classes.input} />
+        <input className="input" />
       </Box>
       <NotificationsIcon />
       <Avatar />

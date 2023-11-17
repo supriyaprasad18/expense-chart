@@ -1,26 +1,12 @@
-import {
-  Box,
-  Divider,
-  Menu,
-  MenuList,
-  Typography,
-  createStyles,
-  makeStyles,
-} from "@material-ui/core";
+import { Box, Divider, Menu, MenuList, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    date: { border: "none !important" },
-  })
-);
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
+import "../index.css";
 
 function CheckingAccount(props) {
-  const classes = useStyles();
   const width = 400;
   const height = 240;
   const svgRef = useRef();
@@ -143,7 +129,7 @@ function CheckingAccount(props) {
               dateFormat="MMMM"
               showMonthYearPicker
               placeholderText="January"
-              className={classes.date}
+              className='date'
             />
             <KeyboardArrowDownIcon />
           </Box>

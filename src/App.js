@@ -1,36 +1,19 @@
-import {
-  Box,
-  List,
-  ListItem,
-  makeStyles,
-  createStyles,
-} from "@material-ui/core";
+import { Box, List, ListItem } from "@mui/material";
 import { sidebarItems } from "./constant";
 import Header from "./modules/Header";
 import { useState } from "react";
 import MainContainer from "./modules";
-
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    drawerStyle: {
-      width: "15%",
-      height: "100vh",
-      position: "fixed",
-      backgroundColor:"white"
-    },
-  })
-);
+import "./index.css";
 
 function App() {
-  const classes = useStyles();
   const [selectedItem, setSelectedItem] = useState(0);
   const [random, setRandom] = useState(false);
   const [accountData, setAccountData] = useState([
     { x: 0, y: 50 },
-    { x: 50, y: 50 },
-    { x: 100, y: 100 },
+    { x: 50, y: 250 },
+    { x: 100, y: 160 },
     { x: 150, y: 50 },
-    { x: 200, y: 100 },
+    { x: 200, y: 190 },
     { x: 250, y: 50 },
     { x: 300, y: 90 },
     { x: 350, y: 120 },
@@ -76,7 +59,7 @@ function App() {
   };
   return (
     <Box>
-      <Box className={classes.drawerStyle}>
+      <Box className="drawer">
         <List>
           <ListItem>
             <Box style={{ marginBottom: "5rem" }}>
@@ -103,7 +86,13 @@ function App() {
         </List>
       </Box>
       <Header randomizeData={randomizeData} />
-      <Box style={{ backgroundColor: "#e6e6e6", marginLeft: "15%" }}>
+      <Box
+        style={{
+          backgroundColor: "#e6e6e6",
+          marginLeft: "15%",
+          marginTop: "1rem",
+        }}
+      >
         <MainContainer
           random={random}
           setRandom={setRandom}

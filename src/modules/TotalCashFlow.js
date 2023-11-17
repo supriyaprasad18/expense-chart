@@ -1,4 +1,4 @@
-import { Box, Divider } from "@material-ui/core";
+import { Box, Divider } from "@mui/material";
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 

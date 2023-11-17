@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid } from "@mui/material";
 import CheckingAccount from "./CheckingAccount";
 import Invoices from "./Invoices";
 import TotalCashFlow from "./TotalCashFlow";
@@ -15,7 +15,7 @@ function MainContainer(props) {
   } = props;
   return (
     <Grid container spacing={2} style={{ padding: "1rem" }}>
-      <Grid item sm={6}>
+      <Grid item sm={12} md={6}>
         <CheckingAccount
           random={random}
           setRandom={setRandom}
@@ -23,21 +23,21 @@ function MainContainer(props) {
           randomizeData={randomizeData}
         />
       </Grid>
-      <Grid item sm={6}>
+      <Grid item sm={12} md={6}>
         <Invoices
           random={random}
           setRandom={setRandom}
           invoiceData={invoiceData}
         />
       </Grid>
-      <Grid item sm={6}>
+      <Grid item sm={12} md={6}>
         <TotalCashFlow
           random={random}
           setRandom={setRandom}
           totalData={totalData}
         />
       </Grid>
-      <Grid item sm={6}>
+      <Grid item sm={12} md={6}>
         <AccountWatchList random={random} setRandom={setRandom} />
       </Grid>
     </Grid>

@@ -5,7 +5,7 @@ import {
   DialogContent,
   DialogTitle,
   Divider,
-} from "@material-ui/core";
+} from "@mui/material";
 import { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 
