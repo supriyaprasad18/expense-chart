@@ -3,14 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import "../index.css";
 
 function CheckingAccount(props) {
   const width = 400;
   const height = 240;
   const svgRef = useRef();
-  const { random, setRandom, accountData: data, randomizeData } = props;
+  const { accountData: data, randomizeData } = props;
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const [startDate, setStartDate] = useState(new Date());
@@ -21,11 +21,11 @@ function CheckingAccount(props) {
     setAnchorEl(null);
   };
   const handleManage = () => {
-    setRandom(true);
+    randomizeData();
     handleClose();
   };
 
-  const constructGraph = async () => {
+  useEffect(() => {
     const svg = d3.select(svgRef.current);
     const xScale = d3
       .scaleLinear()
@@ -52,12 +52,6 @@ function CheckingAccount(props) {
       .call(xAxis)
       .call((g) => g.select(".domain").remove());
     svg.selectAll(".tick line").attr("stroke-width", 0);
-  };
-  useEffect(() => {
-    randomizeData();
-  }, [random]);
-  useEffect(() => {
-    constructGraph();
   }, [data]);
 
   return (
@@ -125,11 +119,14 @@ function CheckingAccount(props) {
           >
             <DatePicker
               selected={startDate}
-              onChange={(date) => setStartDate(date)}
+              onChange={(date) => {
+                setStartDate(date);
+                randomizeData();
+              }}
               dateFormat="MMMM"
               showMonthYearPicker
               placeholderText="January"
-              className='date'
+              className="date"
             />
             <KeyboardArrowDownIcon />
           </Box>

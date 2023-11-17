@@ -106,6 +106,7 @@ function Invoices(props) {
             type="file"
             onChange={(event) => setUpload(event.target.files[0])}
           />
+          <div>{upload ? upload.name : null}</div>
         </DialogContent>
         <DialogActions>Submit</DialogActions>
       </Dialog>

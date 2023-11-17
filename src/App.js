@@ -66,6 +66,7 @@ function App() {
               <img
                 src="https://desk.assiduus.in/content/images/2023/08/Assiduus_TM_Logo--1-.png"
                 width="70%"
+                alt="logo"
               />
             </Box>
           </ListItem>
